@@ -11,13 +11,14 @@ function toggleTheme() {
 </script>
 
 <template>
-  <nav class="w-full h-[10vh] flex items-center justify-between">
+  <nav class="w-full h-[10vh] flex items-center justify-between text-xl">
     <div class="flex gap-4 items-center px-5">
       <NavLink content="home" href="/" />
       <NavLink content="skills" href="/skills" />
       <NavLink content="experience" href="/experience" />
+      <NavLink content="resume" href="/resume" />
       <NavLink content="blog" href="/blog" />
-      <NavLink content="contact" href="/contact" />
+      <NavLink content="contact" href="#contact" />
     </div>
     <div> 
       <Icon 

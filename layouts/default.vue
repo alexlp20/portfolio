@@ -11,10 +11,11 @@ function toggleTheme() {
 
 <template>
   <div :class="isDark ? 'dark' : ''">
-    <div class="text-slate-900 dark:text-slate-200 duration-300 w-screen bg-slate-200 dark:bg-slate-900 n min-h-screen h-auto flex justify-center">
-      <div class="w-7/12 h-screen">
+    <div class="overflow-x-hidden dark:text-slate-200 duration-300 bg-slate-200 dark:bg-slate-900 n min-h-screen h-auto flex flex-col items-center">
+      <div class="w-7/12 h-auto flex flex-col items-center min-h-screen ">
         <NavBar @toggle-theme="toggleTheme"/>
         <slot />
+        <footer class="w-content items-center p-2 h-auto bg-slate-300 dark:bg-slate-700 mt-16 mb-4 rounded-md"><span class="mx-4 opacity-50"> Privacy Policy </span> </footer>
       </div>
     </div>
   </div>

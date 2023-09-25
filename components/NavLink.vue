@@ -5,7 +5,7 @@ const props = defineProps(['href', 'content'])
 </script> 
 
 <template> 
-  <a id="link" class="font-black text-xl" :href="href">{{content}}</a>
+  <a id="link" class="font-black" :href="href">{{content}}</a>
 </template>
 
 <style scoped> 
