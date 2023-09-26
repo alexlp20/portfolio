@@ -2,6 +2,7 @@
 import NavLink from '../components/NavLink.vue';
 import ProjectCard from '../components/ProjectCard.vue';
 import ArtASCII from '../components/ArtASCII';
+import MailForm from '../components/MailForm.vue';
 </script>
 <template>
   <div class="w-full h-[50vh] mt-[10%] flex justify-between items-center gap-10">
@@ -14,7 +15,7 @@ import ArtASCII from '../components/ArtASCII';
           class="bg-slate-300 hover:bg-slate-400 dark:bg-slate-600 dark:hover:bg-slate-700 duration-300 p-3 rounded-md font-bold">
           Check out my
           projects </a>
-        <a href="/contact"
+        <a href="#contact"
           class="bg-slate-600 hover:bg-slate-500 dark:bg-slate-200 dark:hover:bg-white duration-300 text-slate-200 dark:text-slate-600 p-3 rounded-md font-bold">
           Email
           me! </a>
@@ -49,23 +50,39 @@ import ArtASCII from '../components/ArtASCII';
   </div>
   <div id="projects" class="flex h-auto w-full flex-col items-center text-4xl">
     <NavLink href="#contact" content="contact" />
-    <div class="w-full flex gap-3">
-      <div class="w-full h-[40vh] bg-slate-800 text-2xl py-8 flex flex-col items-center rounded-lg">
+    <br />
+    <div class="w-full flex gap-3" id="contact">
+      <div class="w-2/3 h-auto min-h-[40vh] bg-slate-300 dark:bg-slate-800 text-2xl py-8 flex flex-col items-center rounded-lg">
         <NavLink href="#about" content="about me" />
+        <br />
+        <img src="pfp.jpg" class="w-1/3 aspect-auto rounded-full" />
+        <br />
         <div class="text-lg px-10 text-justify"> Hello! I'm Alejandro (Alex) Laguna. I am currently studying
           Computing and Networking at <a class="underline italic" href="https://cendrassos.net">INS Cendrassos.</a>
-          <br><br>
+          <br /><br/>
           I am also teaching myself how to program, and while it is quite a hard journey, I happen to enjoy this
           difficulty.
 
           <br><br>
-          <h5 class="font-bold w-full text-center"> <Icon name="mdi:gmail" class="text-2xl"/> alejandro@alejandrolaguna.dev</h5>
-          <h5 class="font-bold w-full text-center"> <Icon name="mdi:github-box" class="text-2xl"/> alexlp2 </h5>
+          <h5 class="font-bold w-full text-center">
+            <Icon name="mdi:gmail" class="text-2xl" /> alejandro@alejandrolaguna.dev
+          </h5>
+          <h5 class="font-bold w-full text-center">
+            <Icon name="mdi:github-box" class="text-2xl" /> alexlp20
+          </h5>
+          <div class="w-full flex text-base justify-center gap-3 mt-5">
+            <a href="#contact"
+              class="bg-slate-600 hover:bg-slate-500 dark:bg-slate-200 dark:hover:bg-white duration-300 text-slate-200 dark:text-slate-600 p-2 rounded-md font-bold">
+              Projects   
+            </a>
+            <a href="#contact"
+              class="bg-slate-600 hover:bg-slate-500 dark:bg-slate-200 dark:hover:bg-white duration-300 text-slate-200 dark:text-slate-600 p-2 rounded-md font-bold">
+              Work Experience 
+            </a>
+          </div>
         </div>
       </div>
-      <form class="w-full h-[40vh] bg-red-200">
-
-      </form>
+      <MailForm /> 
     </div>
   </div>
 </template>
