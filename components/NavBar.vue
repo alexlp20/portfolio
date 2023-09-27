@@ -18,7 +18,7 @@ function toggleTheme() {
       <NavLink content="experience" href="/experience" />
       <NavLink content="resume" href="/resume" />
       <NavLink content="blog" href="/blog" />
-      <NavLink content="contact" href="#contact" />
+      <NavLink content="contact" href="/#contact" />
     </div>
     <div> 
       <Icon 
