@@ -12,3 +12,15 @@
     overflow-x: hidden;
     scroll-behavior: smooth;
 }
+
+html::-webkit-scrollbar {
+    @apply bg-transparent w-2 mr-2
+}
+
+
+html::-webkit-scrollbar-thumb {
+    @apply bg-violet-300 rounded-lg 
+}
+pre {
+    font-family: 'Martian Mono' !important
+}

@@ -328,15 +328,12 @@ onMounted(async () => {
                             to write dumb stuff.</p>
                     </div>
                     <div class="grid gap-8 lg:grid-cols-2">
-                        <article class="p-6 border border-white border-opacity-10 rounded-lg">
+                        <article v-for="(post, index) in posts" class="p-6 border border-white border-opacity-10 rounded-lg">
                             <div class="flex justify-between items-center mb-5 text-gray-500">
-                                <span class="text-sm">14 days ago</span>
+                                <span class="text-sm">{{formatDateString(post.publish_date)}}</span>
                             </div>
-                            <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><a href="#">How
-                                    to quickly deploy a static website</a></h2>
-                            <p class="mb-5 font-light text-gray-500 dark:text-gray-400">Static websites are now used to
-                                bootstrap lots of websites and are becoming the basis for a variety of tools that even
-                                influence both web designers and developers influence both web designers and developers.</p>
+                            <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><a href="#">{{post.title}}</a></h2>
+                            <p class="mb-5 font-light text-gray-500 dark:text-gray-400">{{post.preview}}</p>
                             <div class="flex justify-between items-center">
                                 <a href="#" class="inline-flex items-center text-violet-300 hover:text-white">
                                     Read more
