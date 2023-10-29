@@ -56,8 +56,8 @@ function formatDateString(inputDate) {
   return `${day} ${month} ${year}`;
 }
 
-onMounted(async () => {
-  const posts = await getPosts();
+onMounted(() => {
+  const posts = getPosts();
 })
 </script>
 <template>
@@ -289,7 +289,7 @@ onMounted(async () => {
                             performance and scalability.</p>
                         <a href="http://www.alteregoweb.com/"
                             class="inline-flex items-center px-4 py-2 text-sm font-medium bg-transparent border-[1px] border-white border-opacity-10 text-violet-100 duration-150 hover:bg-white hover:bg-opacity-10 rounded-lg">
-                            check their website
+                            check out their website
                             <svg class="w-3 h-3 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                                 viewBox="0 0 14 10">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -327,15 +327,15 @@ onMounted(async () => {
                             should not take (almost) any of what I type seriously. I just like
                             to write dumb stuff.</p>
                     </div>
-                    <div class="grid gap-8 lg:grid-cols-2">
-                        <article v-for="(post, index) in posts" class="p-6 border border-white border-opacity-10 rounded-lg">
+                    <div v-if="!isLoading" class="grid gap-8 lg:grid-cols-2">
+                        <article v-for="(post, index) in posts" :key="index" class="p-6 border border-white border-opacity-10 rounded-lg">
                             <div class="flex justify-between items-center mb-5 text-gray-500">
                                 <span class="text-sm">{{formatDateString(post.publish_date)}}</span>
                             </div>
                             <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><a href="#">{{post.title}}</a></h2>
                             <p class="mb-5 font-light text-gray-500 dark:text-gray-400">{{post.preview}}</p>
                             <div class="flex justify-between items-center">
-                                <a href="#" class="inline-flex items-center text-violet-300 hover:text-white">
+                                <a :href="`/posts/${post._id}`" class="inline-flex items-center text-violet-300 hover:text-white">
                                     Read more
                                     <svg class="ml-2 w-4 h-4" fill="currentColor" viewBox="0 0 20 20"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -346,6 +346,9 @@ onMounted(async () => {
                                 </a>
                             </div>
                         </article>
+                    </div>
+                    <div v-else class="text-white"> 
+                        loading... wait please.
                     </div>
                 </div>
             </section>
@@ -358,10 +361,10 @@ onMounted(async () => {
                 together? curious about any of my projects? email me!</p>
             <form @submit.prevent="sendEmail" class="space-y-8 w-5/6 lg:w-3/5">
                 <div>
-                    <label for="name" class="block mb-2 text-lg font-semibold text-violet-100">Your name</label>
+                    <label for="name" class="block mb-2 text-lg font-semibold text-violet-100">Your name / Email</label>
                     <input type="name" id="name"
                         class="shadow-sm border border-white border-opacity-10 bg-transparent text-base text-white rounded-lg block w-full p-2.5"
-                        placeholder="Jane Doe" v-model="name" required>
+                        placeholder="Jane Doe / janedoe@example.com" v-model="name" required>
                 </div>
                 <div>
                     <div>
@@ -384,4 +387,6 @@ onMounted(async () => {
                     message</button>
             </form>
         </div>
-    </div></template>
+    </div>
+    <a href="/policy" class="mt-6 mb-2 w-full flex justify-center items center text-violet-200 opacity-10"> privacy policy </a> 
+</template>
